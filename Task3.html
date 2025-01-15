@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li span {
+    flex-grow: 1;
+}
+
+li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+li button:hover {
+    background-color: #c82333;
+}
+
+.footer{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <button id="addTaskBtn">Add Task</button>
+        <ul id="taskList"></ul>
+    </div>
+
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const taskInput = document.getElementById('taskInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const taskList = document.getElementById('taskList');
+
+    // Load tasks from local storage
+    const loadTasks = () => {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.forEach(task => addTaskToDOM(task));
+    };
+
+    // Save tasks to local storage
+    const saveTasks = () => {
+        const tasks = [];
+        document.querySelectorAll('#taskList li span').forEach(task => {
+            tasks.push(task.textContent);
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    };
+
+    // Add task to DOM
+    const addTaskToDOM = (task) => {
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        span.textContent = task;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = task;
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Edit';
+        editBtn.className = 'edit';
+        editBtn.addEventListener('click', () => {
+            if (li.classList.contains('editing')) {
+                span.textContent = input.value;
+                editBtn.textContent = 'Edit';
+                saveTasks();
+            } else {
+                input.value = span.textContent;
+                editBtn.textContent = 'Save';
+            }
+            li.classList.toggle('editing');
+        });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click', () => {
+            li.remove();
+            saveTasks();
+        });
+
+        li.appendChild(span);
+        li.appendChild(input);
+        li.appendChild(editBtn);
+        li.appendChild(deleteBtn);
+        taskList.appendChild(li);
+    };
+
+    // Add task event listener
+    addTaskBtn.addEventListener('click', () => {
+        const task = taskInput.value.trim();
+        if (task) {
+            addTaskToDOM(task);
+            saveTasks();
+            taskInput.value = '';
+        }
+    });
+
+    // Initial load
+    loadTasks();
+});
+    </script>
+    <footer>
+        <p class="footer">Created By Mehak Fatima</p>
+    </footer>
+</body>
+</html>
