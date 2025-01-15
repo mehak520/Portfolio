@@ -1,0 +1,127 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Calculator</title>
+
+    <style>
+        
+      *{
+            margin: 10px;
+         }
+       
+      body{
+               background-color:pink;
+               display: grid;
+
+               }
+
+      main{
+                display: flex;
+                align-items:center;
+                }
+
+     section{
+                 align-items: center;
+                 display: grid;
+                 height: 400px;
+                 width: 500px;
+                 background-color: wheat;
+                 border: 1px solid white;
+                 border-radius: 9px;
+                  }
+
+     button{
+                background-color: aqua;
+                
+              }
+    </style>
+</head>
+
+
+<body>
+ 
+   <header>
+
+           <h1>Addition Calculator</h1>
+
+    </header>
+   
+     <main>
+               <section>
+                      <p>Addition</p>
+                       
+                      <lable for = "firstnumber">First Number</lable>
+                      <br>
+                      <input type="number" name="firstnumber" id="firstnumber">
+                      <br>
+                      <br>
+                      <lable for = "secondnumber">Second Number</lable>
+                      <br>
+                      <input type="number" name="secondnumber" id="secondnumber">
+                      <br>
+                      <br>
+                      <button onclick="add()">Add</button>
+         
+                       <p>Result of addition:</p>
+                       <p id="resultadd"></p>
+
+                </section>
+
+     </main>
+    
+    <footer>
+    copyright &copy; 2023
+   </footer>
+
+
+  <script>
+          
+          function add(){
+            var firstvalue = document.getElementById('firstnumber').value;
+            var first= parseInt(firstvalue);
+            var secondvalue = document.getElementById('secondnumber').value;
+            var second = parseInt(secondvalue);
+
+
+
+if(firstvalue == ""){
+    
+  alert("please Input First Number");
+
+}
+
+if( first < 18 ){
+    
+  alert("enter age greater than 18");
+}
+
+
+if(secondvalue == ""){
+
+    alert("please Input Second Number");
+}
+
+if(firstvalue != "" && secondvalue != "" && first > 18){
+             
+             var sum= first + second;
+
+             document.getElementById('resultadd').innerText = "Result:" + sum;
+
+
+//creating Dynamic Elements HTML using javascript
+
+
+        var element = document.createElement('p');
+        element.textcontent= "Result : " +sum ;
+        var history = document.getElementById('history');
+        history.append(element);
+
+      }
+                 
+}
+         
+
+  </script>
+</body>
+
+</html>
