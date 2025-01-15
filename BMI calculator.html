@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale-1.0">
+  <title>BMI calculator</title>
+  <link rel="icon" href="../logo.jpg">
+
+ 
+
+</head>
+
+<body>
+    <h1>BMI CALCULATOR</h1>
+
+    <label>age</label>
+    <input type="text" Id="age" name="age">
+    <label>height in centimeters</label>
+    <input type="text" Id="height" name="height">
+    <label>weight</label>
+    <input type="text" Id="weight" name="weight">
+    <button onclick="submit()"> calculate BMI</button>
+    <span Id="BMIresult"></span>
+
+    <script>
+      
+      function submit() {
+        let age = parseInt(document.getElementById('age').value);
+        let height = parseInt(document.getElementById('height').value);
+        let weight = parseInt(document.getElementById('weight').value);
+        let heightinmeter=centimetertometer(height);
+        let BMI=weight/heightinmeter;
+        let result= printresult(BMI);
+        document.getElementById('BMIresult').innerText=result;
+
+      }
+
+      function printresult(BMI) {
+        if(BMI<16) {
+          return "severe underweight";
+        }
+
+        else if(BMI>16 && BMI<18.4) {
+          return "underweight";
+        }
+
+        else if(BMI>18.5 && BMI<24.9) {
+          return "healthy";
+        }
+
+        else if(BMI>25) {
+          return "obese";
+        }
+
+        else {
+          return "invalid";
+        }
+
+      }
+        
+        function centimetertometer(cm) {
+          let meter=cm/100;
+          return meter*meter;
+        }
+
+
+    </script>
+   
+</body>
+
+<footer>
+         <P>it's a BMI Calculator for Medical Purpose</P>
+</footer>
+</html>
