@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader Jump </title>
+    <link rel="icon" href="../images/logos.JPG" border-radius: 50px;>
+ 
+</head>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/logos.JPG') repeat;
+    background-size: contain;
+    line-height: 1.6;
+   
+}
+
+
+header {
+    background: linear-gradient(to right, #0d1bdf ,#1086c2, #88bdd8);
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    color: black;
+}
+
+.logo{
+    height: 50px;
+    width:auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+input,textarea{
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif ;
+    width: calc(100% - 22px); /* Adjusting width for padd*/
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.home-section {
+    background-color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.home-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.home-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #0d1bdf;
+    color: rgb(247, 240, 240);
+    padding: 10px 20px;
+    text-decoration:none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.about-section,
+.courses-section,
+.contact-section {
+    background-color: rgba(255,255,255,0.8);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.course-item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.course-item h3 {
+    margin-top: 0;
+}
+
+.p{
+    font-size:1.5em ;
+}
+
+.b{
+    font-size:1.5em ;
+}
+
+footer {
+    background: linear-gradient(to right, #0d1bdf,#88bdd8);
+    color: rgb(7, 7, 7);
+    text-align: center;
+    padding: 1px;
+    position: fixed;
+    width: 100%;
+    bottom:0;
+}
+.footer{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: linear-gradient(to right, #0d1bdf,#88bdd8);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1500px;
+    width: 100%;
+
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 0.5em 0;
+    }
+}
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    main , section,p{
+        padding: 1em;
+        background-color: #fff;
+    }
+    main section div{
+        align-items: center;
+    }
+}
+
+</style>
+
+<body>
+    <header>
+        <img src="../images/logo.png" alt="insitute logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    </section>
+    <section id="home" class="home-section">
+        <div class="home-content">
+            <h1>Welcome to Reader Jump</h1>
+            <p>Your Gateway to a world of captivating storiesand insightful articles.Dive into a diverse
+                collection of genres and topics and embark on a literary journey that promises to inspire,
+                entertain. and enlighten. join Our Community of avid readers and explore the joy of reading
+                 like never before. We Offer Courses which you can learn and Earn Money from Home.
+            </p>
+            <a href="#courses" class="btn">Explore Courses</a>
+        </div>
+    </section>
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p class="p">At Reader Jump, We are dedicated to providing high-quality educational content to help you
+            excel in your studies. Our YouTube channel offers a wide range of lectures on various topics.
+            We can also Provide a Home Tution Services on Zoom with reasonable fee and in Flexible timing.
+            We provide Tuition Services for Matric, Intermediate & BSCS students all over the Pakistan and we
+            We have started an International Assignment Services.
+            We also Offer Courses Freelancing, Web Development, Graphic Design, Artificial Intelligence and 
+            E-Commerece. Our Moto is <b>"Learn, Grow and Succeed"</b>
+            So Join With us and <br><br> <b class="b"> Learn, Grow and Succeed.</b><br><br>
+          
+            <p class="p"><b>My Channel Introduction</b></p>
+           <iframe src="https://www.youtube.com/embed/MD7CUt60ZpU?si=O9hW1-E2PKtTOcE3" height="300px" width="500px"></iframe> 
+            <p class="p"><b>Channel Playlist</b></p>
+        <iframe width="500px" height="300px" src="https://www.youtube.com/embed/playlist?list/@readerjump-ou3xu" ></iframe>
+        <p class="p"> We will learn more. So, Be in Touch with us</p>
+    </section>
+    <section id="courses" class="courses-section">
+        <h2>Our Courses</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <h3>Freelancing</h3>
+                <p>Discover Comprehensive course content designed to equip you with essential
+                   skills in Freelancing including Communication Skills Online Earning skills, where can
+                    we access clients.  You will learn how to communicate with clients and more
+                    tips for freelancing.
+                </p>
+                <a href="https://www.youtube.com/link-to-course-1" class="btn">Watch Now</a>
+            </div>
+            <div class="course-item">
+                <h3>Web Development</h3>
+                <p>Discover Comprehensive course content designed to equip you with essential
+                    skills in web Development,including HTML, CSS and JavaScript. We will learn how
+                    to create visually appealing, responsive web pages and understand best practices 
+                    in modern we design.</p>
+                <a href="https://www.youtube.com/link-to-course-2" class="btn">Watch Now</a>
+            </div>
+            <div class="course-item">
+                <h3>Graphic Design</h3>
+                <p>Discover Comprehensive course content designed to equip you with essential
+                    skills in Graphic Design including tools Adobe Photoshop, Adobe Illustrator.
+                    We will also explore Other Online Tools like Canva, capcut, Behance, Figma and 
+                    also learn how can we do earning through this skill.
+                </p>
+                <a href="https://www.youtube.com/link-to-course-2" class="btn">Watch Now</a>
+            </div> 
+            <div class="course-item">
+                <h3>Artificial Intelligence</h3>
+                <p>Discover Comprehensive course content designed to equip you with essential
+                    skills in Artificial Inteeligence including Machine Learning, deep Learning,
+                    its types and We will explore how you can make your Future in AI and also learn
+                    How we can earn through AI </p>
+                <a href="https://www.youtube.com/link-to-course-2" class="btn">Watch Now</a>
+            </div>
+            <div class="course-item">
+                <h3>E-Commerece</h3>
+                <p>Discover Comprehensive course content designed to equip you with essential
+                    skills in E-Commerece including Marketing, Targeting Audience, Product Hunting
+                    Product Trending, Keyword Research
+                    We will also Learn how we can Marketing through Facebook, Tiktok, Shopify Store</p>
+                <a href="https://www.youtube.com/link-to-course-2" class="btn">Watch Now</a>
+            </div>
+            <!-- Add more courses as needed -->
+        </div>
+    </section>
+    <section id="contact" class="contact-section">
+        <div class="container">
+        <h2>Contact Us</h2>
+        <p>Have questions or need more information? Feel free to reach out to us!</p>
+        <form action="submit_form.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Reader Jump. All rights reserved.</p>
+        <p class="footer">Created By Mehak Fatima</p>
+    </footer>
+</body>
+</html>
+
