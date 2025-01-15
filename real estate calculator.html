@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Real Estate Calculator</title>
+    
+    <style>
+          *{
+               margin: 40px;
+          }
+         body{
+                padding:20px;
+          }
+         button{
+               padding:10px;
+               border:1px solid black;
+               background-image: linear-gradient('to left' red, green);
+               border-radius: 8px;
+               }
+         .error{
+               color: red;
+               font-size: 10px;
+          }
+    
+      
+    </style>
+    
+    </head>
+    
+    <body>
+    
+         <div>
+            <label>Property Price</label>
+            <input type="text"name="price" id="propertyprice"/>
+            <label>Property Category </label>
+            <input type="text"name="category" id="propertycat"/>
+            <br>
+            
+
+            <label>Down Payment </label>
+            <input type="text"name="downpayment" id="downpayment"/>
+            <label>No of Years </label>
+            <input type="text"name="noofyears" id="noofyears"/>
+            <span class="error" id="priceerror"></span>
+            <span id="downpaymentresult"></span>
+            
+            <div>
+                 <table id="paymentplan"></table>
+
+            </div>
+
+             
+             <button onclick="submit()">Calculate Monthly Value</button>
+          </div>
+    
+    <script>
+          
+    
+        function submit(){
+             
+             //Variables
+              let price = parseInt(document.getElementById('propertyprice').value);      
+              let pricecat= document.getElementById('propertycat').value;
+              let downpayment = parseInt(document.getElementById('downpayment').value); 
+              let downpaymentspan= document.getElementById("downpaymentresult");
+              let paymenttable = document.getElementById('paymentplan');
+              let years =  parseInt(document.getElementById('noofyears').value);
+              //Array
+                   let months = ['january', 'February','march','April', 'may', 'june',
+                      'july', 'August', 'september','october','November','December'];
+
+
+
+            //Business Logic
+            switch ( pricecat ){
+                
+            case 'premium' : 
+                    let paymentpremium = calculateDownpayment(15,downpayment);
+                    let finalamount = AddPropertyTax(paymentpremium,15);     
+                    // above here 15 means govt tax     
+                    downpaymentspan.innerHTML = finalamount;
+                    printPaymentChart(finalamount);
+                    break;
+                      
+            case 'standard':
+                    let paymentstandard = calculateDownpayment(20,downpayment);
+                    let propertyStandardTax = AddPropertyTax(paymentstandard,5);
+                    downpaymentspan.innerHTML =  propertyStandardTax;
+                    break;
+                      
+            case 'diamond':
+                    let paymentdiamond = calculateDownpayment(30,downpayment);
+                    let propertyDiamondTax = AddPropertyTax(paymentdiamond,5);
+                    downpaymentspan.innerHTML = propertyDiamondTax;
+                    break;
+                      
+            default:
+                 alert("No Category Found");
+               }
+    
+        // down payment calculation
+           function calculateDownpayment (percentage, downpayment) {
+    
+           if(downpayment < percentage){
+                     alert("please Increase the Down payment")
+                     return "Invalid";
+            }
+         else{
+              // percentage/100 * actual price for downpaymentprice
+                     let downpaymentprice = (downpayment / 100)* price;
+                     return downpaymentprice;
+               }
+    
+    }
+    
+         //property Tax Value
+    
+           function AddPropertyTax(price,percentage){
+              return(price+ (price* percentage/100));
+    
+    }
+
+         function printPaymentChart(finalamount) {
+               while(years > 0) {
+                     let yearpara = document.createElement('p');
+                     yearpara.innerText = years.length -1;
+                     yearpara.append(paymenttable);
+                     for( let i=0 ; i<months.length; i++){
+                        let row= document.createElement('tr');
+                        paymenttable.append(row);
+                        let monthname = document.createElement('td');
+                        monthname.innerText = months[i];
+                        let monthvalue = document.createElement('td');
+                        monthvalue.innerText = monthvalue;
+
+                        paymenttable.append(monthname);
+                        paymenttable.append(monthname);
+                      }
+                    years--;
+               }
+         }
+
+   }
+    </script>
+     
+    </body>
+    
+    <footer>
+
+    </footer>
+    
+    </html>   
