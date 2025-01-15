@@ -1,0 +1,127 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Contact Form</title>
+
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #CCC;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+label {
+    margin-bottom: 7px;
+    
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif ;
+    width: calc(100% - 22px); /* Adjusting width for padding */
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.footer{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+</style>
+</head>
+
+
+<body>
+
+        <div class="container">
+            <form id="contactForm">
+                <h2>Contact Us</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="type here" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <p class="footer">Created by Mehak Fatima</p>
+
+        <script src="script.js"></script>
+
+  <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+        alert('All fields are required!');
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        alert('Please enter a valid email address!');
+        return;
+    }
+
+    alert('Form submitted successfully! We will contact you soon. Thank you!');
+    // Here you can add code to send the form data to the server
+});
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+</script>
+</body>
+
+</html>
